@@ -17,6 +17,9 @@ public class DriverFactory {
             ChromeOptions options = new ChromeOptions();
 
             Map<String, Object> prefs = new HashMap<>();
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
             prefs.put("credentials_enable_service", false);
             prefs.put("profile.password_manager_enabled", false);
             prefs.put("profile.password_manager_leak_detection", false);
