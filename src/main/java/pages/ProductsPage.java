@@ -6,9 +6,10 @@ import utils.WaitUtils;
 
 public class ProductsPage {
 
-    WebDriver driver;
+    private final WebDriver driver;
+    private final ElementUtils elementUtils;
+
     WaitUtils waitUtils;
-    ElementUtils elementUtils;
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;

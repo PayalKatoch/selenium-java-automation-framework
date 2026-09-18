@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import utils.ElementUtils;
 
 public class LoginPage {
-    WebDriver driver;
-    ElementUtils elementUtils;
+    private final WebDriver driver;
+    private final ElementUtils elementUtils;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;

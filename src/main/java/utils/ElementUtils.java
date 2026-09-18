@@ -20,6 +20,9 @@ public class ElementUtils {
     public String getText(By locator){
         return waitUtils.waitForVisibility(locator).getText();
     }
+    public boolean isElementPresent(By locator) {
+        return !driver.findElements(locator).isEmpty();
+    }
 
 
 

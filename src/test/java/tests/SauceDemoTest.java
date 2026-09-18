@@ -4,6 +4,7 @@ import base.BaseTest;
 import config.PropertyReader;
 import listeners.TestListener;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -14,6 +15,7 @@ import retry.RetryAnalyzer;
 public class SauceDemoTest extends BaseTest {
     @Test(groups = {"smoke", "regression"},retryAnalyzer = RetryAnalyzer.class)
     public void validE2EPurchase() {
+        WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = new ProductsPage(driver);
         CartPage cartpage = new CartPage(driver);

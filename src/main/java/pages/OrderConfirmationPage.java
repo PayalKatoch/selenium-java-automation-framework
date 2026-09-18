@@ -6,8 +6,8 @@ import utils.ElementUtils;
 
 public class OrderConfirmationPage {
 
-    WebDriver driver;
-    ElementUtils elementUtils;
+    private final WebDriver driver;
+    private final ElementUtils elementUtils;
 
     public OrderConfirmationPage(WebDriver driver){
         this.driver=driver;

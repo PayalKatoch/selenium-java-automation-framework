@@ -5,8 +5,8 @@ import utils.ElementUtils;
 
 public class CheckoutPage {
 
-    WebDriver driver;
-    ElementUtils elementUtils;
+    private final WebDriver driver;
+    private final ElementUtils elementUtils;
 
     public CheckoutPage(WebDriver driver){
         this.driver=driver;
@@ -17,6 +17,7 @@ public class CheckoutPage {
     By lastName = By.id("last-name");
     By postalCode = By.id("postal-code");
     By checkoutButton = By.id("continue");
+    By errorMessage = By.cssSelector("[data-test='error']");
 
     public void enterFirstName(String fname){
 //        driver.findElement(firstName).sendKeys(fname);
@@ -31,11 +32,23 @@ public class CheckoutPage {
     public void clickCheckout(){
         elementUtils.click(checkoutButton);
     }
+    public String getErrorMessage() {
+        return elementUtils.getText(errorMessage);}
 
     public void enterCustomerInformationAndCheckout(String fname,String lname, String code){
         enterFirstName(fname);
         enterLastName(lname);
         enterPostalCode(code);
+        clickCheckout();
+    }
+    public void enterCustomerInformation(
+            String firstName,
+            String lastName,
+            String postalCode) {
+
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterPostalCode(postalCode);
         clickCheckout();
     }
 

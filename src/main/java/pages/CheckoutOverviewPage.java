@@ -6,8 +6,9 @@ import utils.ElementUtils;
 
 public class CheckoutOverviewPage {
 
-    WebDriver driver;
-    ElementUtils elementUtils;
+    private final WebDriver driver;
+    private final ElementUtils elementUtils;
+
     public CheckoutOverviewPage(WebDriver driver){
         this.driver=driver;
         this.elementUtils = new ElementUtils(driver);
@@ -39,5 +40,18 @@ public class CheckoutOverviewPage {
         elementUtils.click(finish);
     }
 
+    public double getItemTotalValue() {String value = getItemTotal()
+                .replace("Item total: $", "");
+        return Double.parseDouble(value);
+    }
 
+    public double getTaxValue() {
+        String value = getTax().replace("Tax: $", "");
+        return Double.parseDouble(value);
+    }
+
+    public double getTotalValue() {
+        String value = getTotal().replace("Total: $", "");
+        return Double.parseDouble(value);
+    }
 }
